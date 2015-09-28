@@ -39,7 +39,7 @@ public class GoogleTranslateClient {
 	
 	  public List<Translation>  getTranslate(String apiKey, String source, String target, String text )  {
 		    WebResource webResource = getApiResource()
-		    		.queryParam("key", getConnector().getApiKey())
+		    		.queryParam("key", apiKey)
 		    		.queryParam("source", source)
 		    		.queryParam("target", target)
 		    		.queryParam("q", text);	
