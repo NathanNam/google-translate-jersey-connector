@@ -39,7 +39,7 @@ public class GoogleTranslateClient {
 	
 	  public List<Translation>  getTranslate(String apiKey, String source, String target, String text )  {
 		    WebResource webResource = getApiResource()
-		    		.queryParam("key", apiKey)
+		    		.queryParam("key", getConnector().getApiKey())
 		    		.queryParam("source", source)
 		    		.queryParam("target", target)
 		    		.queryParam("q", text);	
@@ -110,7 +110,8 @@ public class GoogleTranslateClient {
 		    String initialReturn = execute(webResource, "GET", String.class);
 		    JSONObject detections = (JSONObject) new JSONObject(initialReturn).get("data");
 		    JSONArray detectionArray = (JSONArray) new JSONObject(detections.toString()).get("detections");
-		    detectionArray = (JSONArray) detectionArray.get(0); //Eliminate extra brackets.
+		    /*Eliminate extra brackets*/
+		    detectionArray = (JSONArray) detectionArray.get(0);
 		    
 		    for (int index=0; index<detectionArray.length();index++){
 		    	JSONObject language = (JSONObject) detectionArray.get(index);

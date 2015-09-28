@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<connector name="GoogleTranslateJersey">
+    <properties>
+        <connectivity-support>false</connectivity-support>
+        <OAuth-authentication>false</OAuth-authentication>
+        <metadata>static</metadata>
+        <datasense-enabled>true</datasense-enabled>
+        <transformer>false</transformer>
+    </properties>
+    <global-config credentialsFile="">
+        <config name="config-with-apiKey">
+            <attributes>
+                <attribute name="name" use="required" caption="Name" group="Basic Settings" type="name" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="apiUrl" use="optional" caption="Api Url" group="General" type="string" javaType="java.lang.String" default="https://www.googleapis.com/language/translate" category="General"></attribute>
+                <attribute name="apiVersion" use="optional" caption="Api Version" group="General" type="string" javaType="java.lang.String" default="v2" category="General"></attribute>
+                <attribute name="apiKey" use="required" caption="Api Key" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </config>
+    </global-config>
+    <message-processors>
+        <processor name="getTranslate" xmlName="get-translate" caption="Get translate">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="apiKey" use="required" caption="API Key" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="source" use="required" caption="Source Languange" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="target" use="required" caption="Target Languange" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="text" use="required" caption="Text" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="postTranslate" xmlName="post-translate" caption="Post translate">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="apiKey" use="required" caption="API Key" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="source" use="required" caption="Source Languange" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="target" use="required" caption="Target Languange" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="text" use="required" caption="Text" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getSupportedLanguages" xmlName="get-supported-languages" caption="Get supported languages">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="apiKey" use="required" caption="API Key" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="target" use="required" caption="Target Languange" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getDetectLanguage" xmlName="get-detect-language" caption="Get detect language">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="apiKey" use="required" caption="API Key" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="text" use="required" caption="Text" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="postDetectLanguage" xmlName="post-detect-language" caption="Post detect language">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="apiKey" use="required" caption="API Key" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="text" use="required" caption="Text" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+    </message-processors>
+</connector>
