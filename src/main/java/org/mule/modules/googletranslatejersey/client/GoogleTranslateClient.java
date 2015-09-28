@@ -152,7 +152,7 @@ public class GoogleTranslateClient {
 
     	WebResource.Builder builder = webResource.accept(MediaType.APPLICATION_JSON);
     	builder.type(MediaType.APPLICATION_JSON);
-    	if (method == "POST"){
+    	if (method.equals("POST")){
     	builder.header("X-HTTP-Method-Override", "GET");	
     	}
 
