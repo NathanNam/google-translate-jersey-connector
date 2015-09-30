@@ -37,12 +37,28 @@ public class GoogleTranslateClient {
 		mapper = new Gson();
 	}
 	
-	  public List<Translation>  getTranslate(String apiKey, String source, String target, String text )  {
-		    WebResource webResource = getApiResource()
-		    		.queryParam("key", apiKey)
-		    		.queryParam("source", source)
-		    		.queryParam("target", target)
-		    		.queryParam("q", text);	
+	  public List<Translation>  getTranslate(String... params)  {
+		  WebResource webResource;
+		  /**
+		   * When apiKey is passed with a parameter for Functional Test
+		   */
+		  if(params.length==4){
+		  webResource = getApiResource()
+		    		.queryParam("key", params[0])
+		    		.queryParam("source", params[1])
+		    		.queryParam("target", params[2])
+		    		.queryParam("q", params[3]);	
+		  }
+		  /**
+		   * Normal case
+		   */
+		  else{
+		  webResource = getApiResource()
+				  		.queryParam("key", getConnector().getApiKey())
+			    		.queryParam("source", params[0])
+			    		.queryParam("target", params[1])
+			    		.queryParam("q", params[2]);
+		  }
 		    List<Translation> translatedTexts = new ArrayList<Translation>();
 		    String initialReturn = execute(webResource, "GET", String.class);
 		    JSONObject translations = (JSONObject) new JSONObject(initialReturn).get("data");
@@ -57,12 +73,28 @@ public class GoogleTranslateClient {
 
 	  }
 	  
-	  public List<Translation> postTranslate(String apiKey, String source, String target, String text ) {
-		    WebResource webResource = getApiResource()
-		    		.queryParam("key", apiKey)
-		    		.queryParam("source", source)
-		    		.queryParam("target", target)
-		    		.queryParam("q", text);	
+	  public List<Translation> postTranslate(String...params) {
+		  WebResource webResource;
+		  /**
+		   * When apiKey is passed with a parameter for Functional Test
+		   */
+		  if(params.length==4){
+		  webResource = getApiResource()
+		    		.queryParam("key", params[0])
+		    		.queryParam("source", params[1])
+		    		.queryParam("target", params[2])
+		    		.queryParam("q", params[3]);	
+		  }
+		  /**
+		   * Normal case
+		   */
+		  else{
+		  webResource = getApiResource()
+				  		.queryParam("key", getConnector().getApiKey())
+			    		.queryParam("source", params[0])
+			    		.queryParam("target", params[1])
+			    		.queryParam("q", params[2]);
+		  }
 		    List<Translation> translatedTexts = new ArrayList<Translation>();
 		    String initialReturn = execute(webResource, "POST", String.class);
 		    JSONObject translations = (JSONObject) new JSONObject(initialReturn).get("data");
@@ -79,11 +111,26 @@ public class GoogleTranslateClient {
 
 
 
-	  public List<Language> getSupportedLanguages(String apiKey, String target ) {
-		    WebResource webResource = getApiResource()
+	  public List<Language> getSupportedLanguages(String...params) {
+		  WebResource webResource;
+		  /**
+		   * When apiKey is passed with a parameter for Functional Test
+		   */
+		  if(params.length==2){
+		  webResource = getApiResource()
 		    		.path("languages")
-		    		.queryParam("key", apiKey)
-		    		.queryParam("target", target);	
+		    		.queryParam("key", params[0])
+		    		.queryParam("target", params[1]);	
+		  }
+		  /**
+		   * Normal case
+		   */
+		  else{
+		  webResource = getApiResource()
+		    			.path("languages")
+				  		.queryParam("key", getConnector().getApiKey())
+			    		.queryParam("target", params[0]);
+		  }
 		    
 		    
 		    List<Language> supportedLanguages = new ArrayList<Language>();
@@ -100,11 +147,26 @@ public class GoogleTranslateClient {
 		    return supportedLanguages;
 	  }  
   
-	  public List<Detection> getDetectLanguage(String apiKey, String text ) {
-		    WebResource webResource = getApiResource()
+	  public List<Detection> getDetectLanguage(String...params) {
+		  WebResource webResource;
+		  /**
+		   * When apiKey is passed with a parameter for Functional Test
+		   */
+		  if(params.length==2){
+		  webResource = getApiResource()
 		    		.path("detect")
-		    		.queryParam("key", apiKey)
-		    		.queryParam("q", text);	
+		    		.queryParam("key", params[0])
+		    		.queryParam("q", params[1]);	
+		  }
+		  /**
+		   * Normal case
+		   */
+		  else{
+		  webResource = getApiResource()
+		    			.path("detect")
+				  		.queryParam("key", getConnector().getApiKey())
+			    		.queryParam("q", params[0]);
+		  }
 		    
 		    List<Detection> detectedLanguages = new ArrayList<Detection>();
 		    String initialReturn = execute(webResource, "GET", String.class);
@@ -123,11 +185,28 @@ public class GoogleTranslateClient {
 		    return detectedLanguages;
 	  }  
 	  
-	  public List<Detection> postDetectLanguage(String apiKey, String text ) {
-		    WebResource webResource = getApiResource()
+	  public List<Detection> postDetectLanguage(String...params ) {
+
+		  WebResource webResource;
+		  /**
+		   * When apiKey is passed with a parameter for Functional Test
+		   */
+		  if(params.length==2){
+		  webResource = getApiResource()
 		    		.path("detect")
-		    		.queryParam("key", apiKey)
-		    		.queryParam("q", text);		    
+		    		.queryParam("key", params[0])
+		    		.queryParam("q", params[1]);	
+		  }
+		  /**
+		   * Normal case
+		   */
+		  else{
+		  webResource = getApiResource()
+		    			.path("detect")
+				  		.queryParam("key", getConnector().getApiKey())
+			    		.queryParam("q", params[0]);
+		  }
+	    
 		    List<Detection> detectedLanguages = new ArrayList<Detection>();
 		    String initialReturn = execute(webResource, "POST", String.class);
 		    JSONObject detections = (JSONObject) new JSONObject(initialReturn).get("data");

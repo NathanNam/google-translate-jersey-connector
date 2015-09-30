@@ -70,10 +70,10 @@ public class GoogleTranslateJerseyConnector {
      * @throws JsonParseException 
      */
     @Processor(friendlyName = "Tranlate Text")
-    public List<Translation> getTranslate(@FriendlyName("API Key") String apiKey, @FriendlyName("Source Languange") String source,
+    public List<Translation> getTranslate(@FriendlyName("Source Languange") String source,
     		@FriendlyName("Target Languange") String target,
     		@FriendlyName("Text") String text) throws GoogleTransalteConnectorException {
-        return getClient().getTranslate(apiKey, source,target,text);
+        return getClient().getTranslate(source,target,text);
     }
 	
 
@@ -86,10 +86,10 @@ public class GoogleTranslateJerseyConnector {
      * @return
      */
     @Processor(friendlyName = "Tranlate Longer Text")
-    public List<Translation> postTranslate(@FriendlyName("API Key") String apiKey, @FriendlyName("Source Languange") String source,
+    public List<Translation> postTranslate(@FriendlyName("Source Languange") String source,
     		@FriendlyName("Target Languange") String target,
     		@FriendlyName("Text") String text) throws GoogleTransalteConnectorException {
-        return getClient().postTranslate(apiKey, source,target,text);
+        return getClient().postTranslate(source,target,text);
     }
 	
 	/**
@@ -98,9 +98,9 @@ public class GoogleTranslateJerseyConnector {
 	 * @return
 	 */
     @Processor(friendlyName = "Supported Languages")
-    public List<Language> getSupportedLanguages(@FriendlyName("API Key") String apiKey, @FriendlyName("Target Languange") String target)
+    public List<Language> getSupportedLanguages(@FriendlyName("Target Languange") String target)
     		throws GoogleTransalteConnectorException {
-        return getClient().getSupportedLanguages(apiKey,target);
+        return getClient().getSupportedLanguages(target);
     }
 
     
@@ -110,9 +110,9 @@ public class GoogleTranslateJerseyConnector {
      * @return
      */
     @Processor(friendlyName = "Detect Language")
-    public List<Detection> getDetectLanguage(@FriendlyName("API Key") String apiKey, @FriendlyName("Text") String text) 
+    public List<Detection> getDetectLanguage(@FriendlyName("Text") String text) 
     		throws GoogleTransalteConnectorException {
-        return getClient().getDetectLanguage(apiKey, text);
+        return getClient().getDetectLanguage(text);
     }
     
     /**
@@ -121,9 +121,9 @@ public class GoogleTranslateJerseyConnector {
      * @return
      */
     @Processor(friendlyName = "Detect Language From Longer Text")
-    public List<Detection> postDetectLanguage(@FriendlyName("API Key") String apiKey, @FriendlyName("Text") String text) 
+    public List<Detection> postDetectLanguage(@FriendlyName("Text") String text) 
     		throws GoogleTransalteConnectorException {
-        return getClient().postDetectLanguage(apiKey, text);
+        return getClient().postDetectLanguage(text);
     }
 
 }

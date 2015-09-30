@@ -14,7 +14,7 @@ public class GetSupportedLanguagesTestCases extends AbstractGoogleTranslateJerse
 
 	@Test
     public void testGetSupportedLanguages() throws IOException, GoogleTransalteConnectorException {
-	  List<Language> laguageList= getConnector().getSupportedLanguages(API_KEY, TARGET_LANGUAGE);
+	  List<Language> laguageList= getConnector().getClient().getSupportedLanguages(API_KEY, TARGET_LANGUAGE);
 	  Language firsLanguage = laguageList.get(0);  
 	  assertEquals(true, firsLanguage.getLanguage().startsWith("af"));
 	  
