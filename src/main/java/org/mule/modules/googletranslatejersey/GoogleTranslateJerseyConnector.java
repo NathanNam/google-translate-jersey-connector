@@ -57,6 +57,10 @@ public class GoogleTranslateJerseyConnector {
 	public String getApiKey(){
 		return this.config.getApiKey();
 	}
+	
+	public void setApiKey(String apiKey){
+		this.config.setApiKey(apiKey);
+	}
     
 	
     /**

@@ -14,7 +14,7 @@ public class PostTranslateTestCases extends AbstractGoogleTranslateJerseyTestCas
 
 	@Test
     public void testPostTranslate() throws IOException, GoogleTransalteConnectorException {
-		  List<Translation> translatedTextList= getConnector().getClient().postTranslate(API_KEY, SOURCE_LANGUAGE, TARGET_LANGUAGE, TEST_MESSAGE);
+		  List<Translation> translatedTextList= getConnector().postTranslate(SOURCE_LANGUAGE, TARGET_LANGUAGE, TEST_MESSAGE);
 		  Translation translatedText = translatedTextList.get(0);  
 		  assertEquals(true, translatedText.getTranslatedText().startsWith("Guten Morgen, Nathan!"));
 			  

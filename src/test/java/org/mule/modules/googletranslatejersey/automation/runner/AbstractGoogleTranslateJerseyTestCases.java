@@ -5,7 +5,7 @@ import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 
 public class AbstractGoogleTranslateJerseyTestCases extends AbstractTestCase<GoogleTranslateJerseyConnector> {
 
-	 public static final String API_KEY = "Api Key should be put."; 
+	 public static final String API_KEY = "Put the Google Translate API Key here"; 
 	 public static final String SOURCE_LANGUAGE = "en";
 	 public static final String TARGET_LANGUAGE = "de";
 	 public static final String TEST_MESSAGE = "Good morning, Nathan!";

@@ -11,9 +11,10 @@ import org.mule.modules.googletranslatejersey.entities.Detection;
 import org.mule.modules.googletranslatejersey.exception.GoogleTransalteConnectorException;
 
 public class PostDetectLanguageTestCases extends AbstractGoogleTranslateJerseyTestCases{
+
 	@Test
-    public void testPostDetectLanguage() throws IOException, GoogleTransalteConnectorException {
-	  List<Detection> detectedLaguage= getConnector().getClient().postDetectLanguage(API_KEY, TEST_MESSAGE);
+    public void testPostDetectLanguage() throws IOException, GoogleTransalteConnectorException {	
+	  List<Detection> detectedLaguage= getConnector().postDetectLanguage(TEST_MESSAGE);
 	  Detection firsLanguage = detectedLaguage.get(0);  
 	  assertEquals(true, firsLanguage.getLanguage().startsWith("en"));
 	  
