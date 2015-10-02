@@ -1,3 +1,9 @@
+/**
+ * Google Translate Connector
+ *
+ * @author Nathan (Dae Hyun) Nam
+ */
+
 package org.mule.modules.googletranslatejersey;
 
 import java.io.IOException;
@@ -17,7 +23,7 @@ import org.mule.modules.googletranslatejersey.entities.Language;
 import org.mule.modules.googletranslatejersey.entities.Translation;
 import org.mule.modules.googletranslatejersey.exception.GoogleTransalteConnectorException;
 
-@Connector(name="google-translate-jersey", friendlyName="GoogleTranslateJersey")
+@Connector(name="google-translate-jersey", friendlyName="Google Translate")
 public class GoogleTranslateJerseyConnector {
 
     @Config
@@ -63,31 +69,29 @@ public class GoogleTranslateJerseyConnector {
 	}
     
 	
-    /**
+	/**
      * Get a translated text based on a target language
-     * @param source: the language of the source text
-     * @param target: the language to translate the source text into
-     * @param text: the text to be translated (less than 2K characters)
-     * @return
-     * @throws IOException 
-     * @throws JsonMappingException 
-     * @throws JsonParseException 
-     */
+     * @source source: the language of the source text
+     * @target target: the language to translate the source text into
+     * @text text: the text to be translated (less than 2K characters)
+	 * @return
+	 * @throws GoogleTransalteConnectorException
+	 */
     @Processor(friendlyName = "Tranlate Text")
     public List<Translation> getTranslate(@FriendlyName("Source Languange") String source,
     		@FriendlyName("Target Languange") String target,
     		@FriendlyName("Text") String text) throws GoogleTransalteConnectorException {
         return getClient().getTranslate(source,target,text);
     }
-	
-
-	/**
+    
+    /**
      * Get a translated text based on a target language (for a longer text)
      * X-HTTP-Method-Override header should be set as "GET" to tell the translate api to treat the request as a GET.
-     * @param source: the language of the source text
-     * @param target: the language to translate the source text into
-     * @param text: the text to be translated (less than 5K characters)
+     * @source source: the language of the source text
+     * @target target: the language to translate the source text into
+     * @text text: the text to be translated (less than 5K characters)
      * @return
+     * @throws GoogleTransalteConnectorException
      */
     @Processor(friendlyName = "Tranlate Longer Text")
     public List<Translation> postTranslate(@FriendlyName("Source Languange") String source,
@@ -95,23 +99,24 @@ public class GoogleTranslateJerseyConnector {
     		@FriendlyName("Text") String text) throws GoogleTransalteConnectorException {
         return getClient().postTranslate(source,target,text);
     }
-	
-	/**
+    
+    /**
 	 * * Get a list of supported languages by Google Translate.
-     * @param target: language code will be paired with a full name in a language specified in targetLanguage.
-	 * @return
-	 */
+     * @target target: language code will be paired with a full name in a language specified in targetLanguage.
+     * @return
+     * @throws GoogleTransalteConnectorException
+     */
     @Processor(friendlyName = "Supported Languages")
     public List<Language> getSupportedLanguages(@FriendlyName("Target Languange") String target)
     		throws GoogleTransalteConnectorException {
         return getClient().getSupportedLanguages(target);
     }
-
     
     /**
      * Detect in which language a text is written.
-     * @param text: the text to be detected (less than 2K characters)
+     * @text text: the text to be detected (less than 2K characters)
      * @return
+     * @throws GoogleTransalteConnectorException
      */
     @Processor(friendlyName = "Detect Language")
     public List<Detection> getDetectLanguage(@FriendlyName("Text") String text) 
@@ -121,8 +126,9 @@ public class GoogleTranslateJerseyConnector {
     
     /**
      * Detect in which language a text is written.
-     * @param text: the text to be detected (less than 5K characters)
+     * @text text: the text to be detected (less than 5K characters)
      * @return
+     * @throws GoogleTransalteConnectorException
      */
     @Processor(friendlyName = "Detect Language From Longer Text")
     public List<Detection> postDetectLanguage(@FriendlyName("Text") String text) 

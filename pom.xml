@@ -31,8 +31,7 @@
             <layout>default</layout>
         </repository>
     </repositories>
-    
-        <distributionManagement>
+    <distributionManagement>
 	    <repository>
 	        <id>mulesoft-releases</id>
 	        <name>MuleSoft Repository</name>
@@ -71,4 +70,5 @@
        	<version>2.3.1</version>
     </dependency>
   </dependencies>
+  
 </project>
