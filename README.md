@@ -11,4 +11,4 @@ Mule 3.7.x
 Open Anypoint Studio, go to Help → Install New Software and select Anypoint Connectors Update Site where you’ll find all available connectors.
 
 #Usage
-For information about usage, please check this documentation at http://nathannam.github.io/google-translate/user-manual.htm.
+For information about usage, please check this documentation at http://nathannam.github.io/google-translate/user-manual.html.
