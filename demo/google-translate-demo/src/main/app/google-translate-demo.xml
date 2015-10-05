@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:google-translate-jersey="http://www.mulesoft.org/schema/mule/google-translate-jersey" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/google-translate-jersey http://www.mulesoft.org/schema/mule/google-translate-jersey/current/mule-google-translate-jersey.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" basePath="googletranslate" doc:name="HTTP Listener Configuration"/>
+    <google-translate-jersey:config-with-apiKey name="Google_Translate__Configuration" apiKey="" doc:name="Google Translate: Configuration"/>
+    <flow name="Get-Translate">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/gettranslate" doc:name="HTTP"/>
+        <google-translate-jersey:get-translate config-ref="Google_Translate__Configuration" source="en" target="de" text="Good Morning, Nathan!" doc:name="Google Translate"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+    <flow name="Post-Translate">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/posttranslate" doc:name="HTTP"/>
+        <google-translate-jersey:post-translate config-ref="Google_Translate__Configuration" source="en" target="de" text="Good Morning, Nathan!" doc:name="Google Translate"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+    <flow name="Get-Supported-Languages">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/getsupportedlanguages" doc:name="HTTP"/>
+        <google-translate-jersey:get-supported-languages config-ref="Google_Translate__Configuration" target="en" doc:name="Google Translate"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+    <flow name="Get-Detect-Language">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/getdetectlanguage" doc:name="HTTP"/>
+        <google-translate-jersey:get-detect-language config-ref="Google_Translate__Configuration" text="Good Morning, Nathan!" doc:name="Google Translate"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+    <flow name="Post-Detect-Language">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/postdetectlanguage" doc:name="HTTP"/>
+        <google-translate-jersey:post-detect-language config-ref="Google_Translate__Configuration" text="Good Morning, Nathan!" doc:name="Google Translate"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+</mule>
