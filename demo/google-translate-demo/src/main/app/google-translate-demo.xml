@@ -24,7 +24,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
     <flow name="Get-Supported-Languages">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/getsupportedlanguages" doc:name="HTTP"/>
         <google-translate-jersey:get-supported-languages config-ref="Google_Translate__Configuration" doc:name="Google Translate" target="en"/>
-        <json:object-to-json-transformer doc:name="Copy_of_Object to JSON"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
     </flow>
     <flow name="Get-Detect-Language">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/getdetectlanguage" doc:name="HTTP"/>
