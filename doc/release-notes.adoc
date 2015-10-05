@@ -1,4 +1,4 @@
-= Anypoint™ Google Translate Jersey Connectors Release Notes
+= Google Translate Connector Release Notes
 
 == References:
 
@@ -8,7 +8,7 @@
 
 - *Supported Mule Version*" 3.7.x
 
-== Google Translate Jersey Connector Release Notes
+== Google Translate Connector Release Notes
 === <Release_date>
 
 === Contents

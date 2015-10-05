@@ -1,3 +1,15 @@
-<!-- BEGIN_INCLUDE(google-translate-jersey:greet) -->
-    <google-translate-jersey:greet config-ref="" friend="#[map-payload:friend]" />
-<!-- END_INCLUDE(google-translate-jersey:greet) -->
+<!-- BEGIN_INCLUDE(google-translate:getTranslate) -->
+	<google-translate:getTranslate config-ref="GoogleTranslateJersey__Configuration" source="en" target="de" text="Good Morning, Nathan!"/>
+<!-- END_INCLUDE(google-translate:getTranslate) -->
+<!-- BEGIN_INCLUDE(google-translate:postTranslate) -->
+	<google-translate:getTranslate config-ref="GoogleTranslateJersey__Configuration" source="en" target="de" text="Good Morning, Nathan!"/>
+<!-- END_INCLUDE(google-translate:postTranslate) -->
+<!-- BEGIN_INCLUDE(google-translate:getSupportedLanguages) -->
+	<google-translate:getTranslate config-ref="GoogleTranslateJersey__Configuration" target="en"/>
+<!-- END_INCLUDE(google-translate:getSupportedLanguages) -->
+<!-- BEGIN_INCLUDE(google-translate:getDetectLanguage) -->
+	<google-translate:getTranslate config-ref="GoogleTranslateJersey__Configuration" text="Good Morning, Nathan!"/>
+<!-- END_INCLUDE(google-translate:getDetectLanguage) -->
+<!-- BEGIN_INCLUDE(google-translate:postDetectLanguage) -->
+	<google-translate:getTranslate config-ref="GoogleTranslateJersey__Configuration" text="Good Morning, Nathan!"/>
+<!-- END_INCLUDE(google-translate:postDetectLanguage) -->

@@ -71,9 +71,9 @@ public class GoogleTranslateJerseyConnector {
 	
 	/**
      * Get a translated text based on a target language
-     * @source source: the language of the source text
-     * @target target: the language to translate the source text into
-     * @text text: the text to be translated (less than 2K characters)
+     * @param source: the language of the source text
+     * @param target: the language to translate the source text into
+     * @param text: the text to be translated (less than 2K characters)
 	 * @return
 	 * @throws GoogleTransalteConnectorException
 	 */
@@ -87,9 +87,9 @@ public class GoogleTranslateJerseyConnector {
     /**
      * Get a translated text based on a target language (for a longer text)
      * X-HTTP-Method-Override header should be set as "GET" to tell the translate api to treat the request as a GET.
-     * @source source: the language of the source text
-     * @target target: the language to translate the source text into
-     * @text text: the text to be translated (less than 5K characters)
+     * @param source: the language of the source text
+     * @param target: the language to translate the source text into
+     * @param text: the text to be translated (less than 5K characters)
      * @return
      * @throws GoogleTransalteConnectorException
      */
@@ -102,7 +102,7 @@ public class GoogleTranslateJerseyConnector {
     
     /**
 	 * * Get a list of supported languages by Google Translate.
-     * @target target: language code will be paired with a full name in a language specified in targetLanguage.
+     * @param target: language code will be paired with a full name in a language specified in targetLanguage.
      * @return
      * @throws GoogleTransalteConnectorException
      */
@@ -114,7 +114,7 @@ public class GoogleTranslateJerseyConnector {
     
     /**
      * Detect in which language a text is written.
-     * @text text: the text to be detected (less than 2K characters)
+     * @param text: the text to be detected (less than 2K characters)
      * @return
      * @throws GoogleTransalteConnectorException
      */
@@ -126,7 +126,7 @@ public class GoogleTranslateJerseyConnector {
     
     /**
      * Detect in which language a text is written.
-     * @text text: the text to be detected (less than 5K characters)
+     * @param text: the text to be detected (less than 5K characters)
      * @return
      * @throws GoogleTransalteConnectorException
      */

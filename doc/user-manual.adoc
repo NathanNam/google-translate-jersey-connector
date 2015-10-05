@@ -1,0 +1,26 @@
+= Google Translate Connector
+
+---
+
+== Introduction
+Google Translate is Google's free online language translation service which instantly translates text and web pages. With Google Translate Connector,
+you can easily use Google Translate service in your Mule application.
+
+---
+
+== Installing & Configuring
+=== Installing
+You can download Google Translate Connector from Anypoint Exchange or download link:https://github.com/NathanNam/google-translate-jersey-connector[the source code from Github].
+
+
+=== Configuring
+To use this connector, you need a Google Translate API Key.
+
+. Go to link:https://console.developers.google.com/[Google Developer Console] and create a API Key in the *Credentials* menu.
+. Copy the key and go to Anypoint Studio.
+. Create a new Google Translate Configuration.
+.. You will see the pre-populated URL and Version, so all you need to do is put your API Key in the API Key field.
+. Ready to translate!
+
+== Google Translate API (v2)
+More information about Google Translate API: https://cloud.google.com/translate/docs.
