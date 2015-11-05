@@ -1,15 +1,19 @@
-<!-- BEGIN_INCLUDE(google-translate:getTranslate) -->
-	<google-translate:getTranslate config-ref="GoogleTranslateJersey__Configuration" source="en" target="de" text="Good Morning, Nathan!"/>
-<!-- END_INCLUDE(google-translate:getTranslate) -->
-<!-- BEGIN_INCLUDE(google-translate:postTranslate) -->
-	<google-translate:getTranslate config-ref="GoogleTranslateJersey__Configuration" source="en" target="de" text="Good Morning, Nathan!"/>
-<!-- END_INCLUDE(google-translate:postTranslate) -->
-<!-- BEGIN_INCLUDE(google-translate:getSupportedLanguages) -->
-	<google-translate:getTranslate config-ref="GoogleTranslateJersey__Configuration" target="en"/>
-<!-- END_INCLUDE(google-translate:getSupportedLanguages) -->
-<!-- BEGIN_INCLUDE(google-translate:getDetectLanguage) -->
-	<google-translate:getTranslate config-ref="GoogleTranslateJersey__Configuration" text="Good Morning, Nathan!"/>
-<!-- END_INCLUDE(google-translate:getDetectLanguage) -->
-<!-- BEGIN_INCLUDE(google-translate:postDetectLanguage) -->
-	<google-translate:getTranslate config-ref="GoogleTranslateJersey__Configuration" text="Good Morning, Nathan!"/>
-<!-- END_INCLUDE(google-translate:postDetectLanguage) -->
+<!-- BEGIN_INCLUDE(google-translate-jersey:get-translate) -->
+	<google-translate-jersey:get-translate config-ref="GoogleTranslateJersey__Configuration" source="en" target="de" text="Good Morning, Nathan!"/>
+<!-- END_INCLUDE(google-translate-jersey:get-translate) -->
+
+<!-- BEGIN_INCLUDE(google-translate-jersey:post-translate) -->
+	<google-translate-jersey:post-translate config-ref="GoogleTranslateJersey__Configuration" source="en" target="de" text="Good Morning, Nathan!"/>
+<!-- END_INCLUDE(google-translate-jersey:post-translate) -->
+
+<!-- BEGIN_INCLUDE(google-translate-jersey:get-supported-languages) -->
+	<google-translate-jersey:get-supported-languages config-ref="GoogleTranslateJersey__Configuration" target="en"/>
+<!-- END_INCLUDE(google-translate-jersey:get-supported-languages) -->
+
+<!-- BEGIN_INCLUDE(google-translate-jersey:get-detect-language) -->
+	<google-translate-jersey:get-detect-language config-ref="GoogleTranslateJersey__Configuration" text="Good Morning, Nathan!"/>
+<!-- END_INCLUDE(google-translate-jersey:get-detect-language) -->
+
+<!-- BEGIN_INCLUDE(google-translate-jersey:post-detect-language) -->
+	<google-translate-jersey:post-detect-language config-ref="GoogleTranslateJersey__Configuration" text="Good Morning, Nathan!"/>
+<!-- END_INCLUDE(google-translate-jersey:post-detect-language) -->

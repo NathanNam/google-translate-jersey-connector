@@ -1,16 +1,14 @@
 /**
- * Google Translate Connector
- *
- * @author Nathan (Dae Hyun) Nam
+ * (c) 2003-2015 MuleSoft, Inc. The software in this package is published under the terms of the CPAL v1.0 license,
+ * a copy of which has been included with this distribution in the LICENSE.md file.
  */
+
+
 
 package org.mule.modules.googletranslatejersey;
 
-import java.io.IOException;
 import java.util.List;
 
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
 import org.mule.api.annotations.Config;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Processor;
@@ -23,6 +21,11 @@ import org.mule.modules.googletranslatejersey.entities.Language;
 import org.mule.modules.googletranslatejersey.entities.Translation;
 import org.mule.modules.googletranslatejersey.exception.GoogleTransalteConnectorException;
 
+/**
+ * Google Translate Connector
+ *
+ * @author Nathan (Dae Hyun) Nam
+ */
 @Connector(name="google-translate-jersey", friendlyName="Google Translate")
 public class GoogleTranslateJerseyConnector {
 
@@ -70,12 +73,14 @@ public class GoogleTranslateJerseyConnector {
     
 	
 	/**
-     * Get a translated text based on a target language (less than 2K characters)
-     * @param source: the language of the source text
-     * @param target: the language to translate the source text into
-     * @param text: the text to be translated (less than 2K characters)
-	 * @return
-	 * @throws GoogleTransalteConnectorException
+     * Get a translated text based on a target language (less than 2K characters).
+     * <p/>
+     * {@sample.xml ../../../doc/google-translate-jersey-connector.xml.sample google-translate-jersey:get-translate}
+     * @param source the language of the source text
+     * @param target the language to translate the source text into
+     * @param text the text to be translated (less than 2K characters)
+	 * @return a list of the translated text
+	 * @throws GoogleTransalteConnectorException If the response is an error or the response cannot be parsed as a Translation. 
 	 */
     @Processor(friendlyName = "Tranlate Text")
     public List<Translation> getTranslate(@FriendlyName("Source Languange") String source,
@@ -85,13 +90,14 @@ public class GoogleTranslateJerseyConnector {
     }
     
     /**
-     * Get a translated text based on a target language (less than 5K characters)
-     * X-HTTP-Method-Override header should be set as "GET" to tell the translate api to treat the request as a GET.
-     * @param source: the language of the source text
-     * @param target: the language to translate the source text into
-     * @param text: the text to be translated (less than 5K characters)
-     * @return
-     * @throws GoogleTransalteConnectorException
+     * Get a translated text based on a target language (less than 5K characters). X-HTTP-Method-Override header should be set as "GET" to tell the translate api to treat the request as a GET.
+     * <p/>
+     * {@sample.xml ../../../doc/google-translate-jersey-connector.xml.sample google-translate-jersey:post-translate}
+     * @param source the language of the source text
+     * @param target the language to translate the source text into
+     * @param text the text to be translated (less than 5K characters)
+     * @return a list of the translated text
+     * @throws GoogleTransalteConnectorException If the response is an error or the response cannot be parsed as a Translation.
      */
     @Processor(friendlyName = "Tranlate Longer Text")
     public List<Translation> postTranslate(@FriendlyName("Source Languange") String source,
@@ -102,9 +108,11 @@ public class GoogleTranslateJerseyConnector {
     
     /**
 	 * Get a list of supported languages by Google Translate.
-     * @param target: language code will be paired with a full name in a language specified in Target Language.
-     * @return
-     * @throws GoogleTransalteConnectorException
+     * <p/>
+     * {@sample.xml ../../../doc/google-translate-jersey-connector.xml.sample google-translate-jersey:get-supported-languages}
+     * @param target language code will be paired with a full name in a language specified in Target Language.
+     * @return a list of the supported languages by Google Translate
+     * @throws GoogleTransalteConnectorException If the response is an error or the response cannot be parsed as a Language.
      */
     @Processor(friendlyName = "Supported Languages")
     public List<Language> getSupportedLanguages(@FriendlyName("Target Languange") String target)
@@ -113,10 +121,12 @@ public class GoogleTranslateJerseyConnector {
     }
     
     /**
-     * Detect in which language a text is written.(less than 2K characters)
-     * @param text: the text to be detected (less than 2K characters)
-     * @return
-     * @throws GoogleTransalteConnectorException
+     * Detect in which language a text is written (less than 2K characters).
+     * <p/>
+     * {@sample.xml ../../../doc/google-translate-jersey-connector.xml.sample google-translate-jersey:get-detect-language}
+     * @param text the text to be detected (less than 2K characters)
+     * @return a list of information including the detected language
+     * @throws GoogleTransalteConnectorException If the response is an error or the response cannot be parsed as a Detection.
      */
     @Processor(friendlyName = "Detect Language")
     public List<Detection> getDetectLanguage(@FriendlyName("Text") String text) 
@@ -125,10 +135,12 @@ public class GoogleTranslateJerseyConnector {
     }
     
     /**
-     * Detect in which language a text is written. (less than 5K characters)
-     * @param text: the text to be detected (less than 5K characters)
-     * @return
-     * @throws GoogleTransalteConnectorException
+     * Detect in which language a text is written (less than 5K characters).
+     * <p/>
+     * {@sample.xml ../../../doc/google-translate-jersey-connector.xml.sample google-translate-jersey:post-detect-language}
+     * @param text the text to be detected (less than 5K characters)
+     * @return a list of information including the detected language
+     * @throws GoogleTransalteConnectorException If the response is an error or the response cannot be parsed as a Detection.
      */
     @Processor(friendlyName = "Detect Language From Longer Text")
     public List<Detection> postDetectLanguage(@FriendlyName("Text") String text) 

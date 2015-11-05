@@ -1,17 +1,29 @@
-# GoogleTranslateJersey Release Notes
-# --------------------------------------------------------------------
-# Date: <DD-MMM-YYYY>
-Example: 24-Jan-2015
-# Version: (default value: 0.1)
-# Supported API versions: 
-Example: Salesforce Bulk API v.28, SOAP API V.28 (include links to API docs)
-# Supported Mule Runtime Versions: 
-${project.devkitVersion}
-# New Features and Functionality
-(default value: Initial version) 
-Example: Added support for Query. http://github.com/mulesoft/google-translate-jersey/issues/61
-# Closed Issues in this release 
-(include issue link when possible)
-Example: Fixed problem with lost telefone on Bulk Update (CLDCONNECT-123).
-# Known Issues in this release
-Example: Session ID expires after  30 days. http://github.com/mulesoft/google-translate-jersey/issues/62
+= Google Translate Connector Release Notes
+
+== References:
+
+- *Google Translate (API v2)*
+
+- *Connector Version*: v1.0.0
+
+- *Supported Mule Version*" 3.7.x
+
+== Google Translate Connector Release Notes
+=== <Release_date>
+
+=== Contents
+
+- Features
+- Support Resources
+
+Release Notes for version 1.0.0 of the Google Translate connector. These Release Notes accompany the  <Connector_Guide_URL> guide.
+
+=== Features
+
+1. Translate Text
+	- GET
+	- POST
+2. Supported Languages
+3. Detect Language
+	- GET
+	- POST

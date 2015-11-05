@@ -15,25 +15,30 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
         <http:listener config-ref="HTTP_Listener_Configuration" path="/gettranslate" doc:name="HTTP"/>
         <google-translate-jersey:get-translate config-ref="Google_Translate__Configuration" source="en" target="de" text="Good Morning, Nathan!" doc:name="Google Translate"/>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <logger level="INFO" doc:name="Logger"/>
     </flow>
     <flow name="Post-Translate">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/posttranslate" doc:name="HTTP"/>
         <google-translate-jersey:post-translate config-ref="Google_Translate__Configuration" doc:name="Google Translate" source="en" target="de" text="Good Morning, Nathan!"/>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <logger level="INFO" doc:name="Logger"/>
     </flow>
     <flow name="Get-Supported-Languages">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/getsupportedlanguages" doc:name="HTTP"/>
         <google-translate-jersey:get-supported-languages config-ref="Google_Translate__Configuration" doc:name="Google Translate" target="en"/>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <logger level="INFO" doc:name="Logger"/>
     </flow>
     <flow name="Get-Detect-Language">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/getdetectlanguage" doc:name="HTTP"/>
         <google-translate-jersey:get-detect-language config-ref="Google_Translate__Configuration" doc:name="Google Translate" text="Good Morning, Nathan!"/>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <logger level="INFO" doc:name="Logger"/>
     </flow>
     <flow name="Post-Detect-Language">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/postdetectlanguage" doc:name="HTTP"/>
         <google-translate-jersey:post-detect-language config-ref="Google_Translate__Configuration" doc:name="Google Translate" text="Good Morning, Nathan!"/>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <logger level="INFO" doc:name="Logger"/>
     </flow>
 </mule>
